@@ -47,6 +47,7 @@
   <ItemGroup>
     <Compile Include="FileNameGenerator.cs" />
     <Compile Include="FileNameParser.cs" />
+    <Compile Include="FileWriter.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
