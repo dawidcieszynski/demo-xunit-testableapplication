@@ -1,4 +1,5 @@
 ﻿using System;
+using Autofac;
 
 namespace TestableApplication
 {
@@ -6,6 +7,10 @@ namespace TestableApplication
     {
         public static void Main()
         {
+            var container = ContainerGenerator.GetContainerBuilder().Build();
+            var business = container.Resolve<IBusiness>();
+            business.Run();
+
             Console.WriteLine("OK");
             Console.ReadKey();
         }
