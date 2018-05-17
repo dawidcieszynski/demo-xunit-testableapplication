@@ -93,6 +93,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="EmailSenderTests.cs" />
     <Compile Include="FileNameGeneratorTests.cs" />
     <Compile Include="FileNameParserTests.cs" />
     <Compile Include="FileWriterTests.cs" />
