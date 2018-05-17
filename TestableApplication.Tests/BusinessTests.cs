@@ -1,4 +1,5 @@
-﻿using Autofac;
+﻿using System;
+using Autofac;
 using NSubstitute;
 using Xunit;
 
@@ -21,6 +22,14 @@ namespace TestableApplication.Tests
             _container.Resolve<IBusiness>().Run();
 
             _container.Resolve<IFileReader>().Received(1).GetFiles();
+        }
+
+        [Fact]
+        public void ShouldGenerateFileNameFromCurrentDate()
+        {
+            _container.Resolve<IBusiness>().Run();
+
+            _container.Resolve<IFileNameGenerator>().Received(1).Generate(Arg.Any<DateTime>());
         }
     }
 }
