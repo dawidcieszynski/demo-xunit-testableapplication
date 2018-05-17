@@ -1,4 +1,5 @@
 ﻿using System.IO.Abstractions;
+using AutoFixture;
 using NSubstitute;
 using Xunit;
 
@@ -11,10 +12,13 @@ namespace TestableApplication.Tests
         {
             var fileSystem = Substitute.For<IFileSystem>();
             var fileWriter = new FileWriter(fileSystem);
+            var fixture = new Fixture();
+            var fileName = fixture.Create<string>();
+            var content = fixture.Create<string>();
 
-            fileWriter.Save("", "");
+            fileWriter.Save(fileName, content);
 
-            fileSystem.File.Received().WriteAllText(Arg.Any<string>(), Arg.Any<string>());
+            fileSystem.File.Received().WriteAllText(fileName, content);
         }
     }
 }
