@@ -1,6 +1,6 @@
-﻿using System.IO.Abstractions;
+﻿using System.IO.Abstractions.TestingHelpers;
 using AutoFixture.Xunit2;
-using NSubstitute;
+using FluentAssertions;
 using Xunit;
 
 namespace TestableApplication.Tests
@@ -11,12 +11,12 @@ namespace TestableApplication.Tests
         [AutoData]
         public void ShouldSaveContentToFile(string fileName, string content)
         {
-            var fileSystem = Substitute.For<IFileSystem>();
+            var fileSystem = new MockFileSystem();
             var fileWriter = new FileWriter(fileSystem);
 
             fileWriter.Save(fileName, content);
 
-            fileSystem.File.Received().WriteAllText(fileName, content);
+            fileSystem.File.ReadAllText(fileName).Should().Be(content);
         }
     }
 }
