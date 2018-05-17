@@ -53,5 +53,13 @@ namespace TestableApplication.Tests
 
             _container.Resolve<ICurrencyService>().Received(0).GetLatest();
         }
+
+        [Fact]
+        public void ShouldSaveDataFromService()
+        {
+            _container.Resolve<IBusiness>().Run();
+
+            _container.Resolve<IFileWriter>().Received(1).Save(Arg.Any<string>(), Arg.Any<string>());
+        }
     }
 }
