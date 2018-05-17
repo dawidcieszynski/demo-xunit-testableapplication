@@ -1,5 +1,5 @@
 ﻿using System.IO.Abstractions;
-using AutoFixture;
+using AutoFixture.Xunit2;
 using NSubstitute;
 using Xunit;
 
@@ -7,14 +7,12 @@ namespace TestableApplication.Tests
 {
     public class FileWriterTests
     {
-        [Fact]
-        public void ShouldSaveContentToFile()
+        [Theory]
+        [AutoData]
+        public void ShouldSaveContentToFile(string fileName, string content)
         {
             var fileSystem = Substitute.For<IFileSystem>();
             var fileWriter = new FileWriter(fileSystem);
-            var fixture = new Fixture();
-            var fileName = fixture.Create<string>();
-            var content = fixture.Create<string>();
 
             fileWriter.Save(fileName, content);
 
