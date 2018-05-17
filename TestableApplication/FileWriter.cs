@@ -3,7 +3,7 @@ using System.IO.Abstractions;
 
 namespace TestableApplication
 {
-    public class FileWriter
+    public class FileWriter : IFileWriter
     {
         private readonly IFileSystem _fileSystem;
 

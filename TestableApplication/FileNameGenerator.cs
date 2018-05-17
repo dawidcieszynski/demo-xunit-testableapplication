@@ -2,7 +2,7 @@
 
 namespace TestableApplication
 {
-    public class FileNameGenerator
+    public class FileNameGenerator : IFileNameGenerator
     {
         public string Generate(DateTime date)
         {

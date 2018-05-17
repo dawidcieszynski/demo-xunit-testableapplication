@@ -4,7 +4,7 @@ using System.Net.Mail;
 
 namespace TestableApplication
 {
-    public class EmailSender
+    public class EmailSender : IEmailSender
     {
         public void Send(string email, string content, string subject)
         {

@@ -8,7 +8,7 @@ using Newtonsoft.Json;
 
 namespace TestableApplication
 {
-    public class FileReader
+    public class FileReader : IFileReader
     {
         private readonly IFileSystem _fileSystem;
 

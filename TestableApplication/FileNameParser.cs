@@ -2,7 +2,7 @@
 
 namespace TestableApplication
 {
-    public class FileNameParser
+    public class FileNameParser : IFileNameParser
     {
         public DateTime Parse(string fileName)
         {

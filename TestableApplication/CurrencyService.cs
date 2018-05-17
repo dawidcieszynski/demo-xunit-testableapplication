@@ -3,7 +3,7 @@ using RestSharp;
 
 namespace TestableApplication
 {
-    public class CurrencyService
+    public class CurrencyService : ICurrencyService
     {
         public CurrencyData GetLatest()
         {
