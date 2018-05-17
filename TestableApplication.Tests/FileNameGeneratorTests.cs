@@ -1,4 +1,5 @@
-﻿using Xunit;
+﻿using FluentAssertions;
+using Xunit;
 
 namespace TestableApplication.Tests
 {
@@ -11,7 +12,7 @@ namespace TestableApplication.Tests
 
             var newFileName = fileNameGenerator.Generate();
 
-            Assert.NotEmpty(newFileName);
+            newFileName.Should().NotBeEmpty();
         }
     }
 }
