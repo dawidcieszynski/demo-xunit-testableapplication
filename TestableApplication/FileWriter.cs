@@ -1,4 +1,5 @@
-﻿using System.IO.Abstractions;
+﻿using System.IO;
+using System.IO.Abstractions;
 
 namespace TestableApplication
 {
@@ -13,7 +14,14 @@ namespace TestableApplication
 
         public void Save(string path, string contents)
         {
-            _fileSystem.File.WriteAllText(path, contents);
+            using (var stream = _fileSystem.File.Open(path, FileMode.OpenOrCreate, FileAccess.Write, FileShare.None))
+            {
+                using (var streamWriter = new StreamWriter(stream))
+                {
+                    streamWriter.Write(contents);
+                    streamWriter.Flush();
+                }
+            }
         }
     }
 }
