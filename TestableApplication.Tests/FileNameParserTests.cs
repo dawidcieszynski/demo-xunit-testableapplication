@@ -1,5 +1,4 @@
-﻿using System;
-using FluentAssertions;
+﻿using FluentAssertions;
 using Xunit;
 
 namespace TestableApplication.Tests
@@ -18,14 +17,6 @@ namespace TestableApplication.Tests
             date.Year.Should().Be(y);
             date.Month.Should().Be(m);
             date.Day.Should().Be(d);
-        }
-    }
-
-    public class FileNameParser
-    {
-        public DateTime Parse(string fileName)
-        {
-            return DateTime.Parse(fileName.Split('.')[0]);
         }
     }
 }
