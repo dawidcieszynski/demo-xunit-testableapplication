@@ -61,5 +61,13 @@ namespace TestableApplication.Tests
 
             _container.Resolve<IFileWriter>().Received(1).Save(Arg.Any<string>(), Arg.Any<string>());
         }
+
+        [Fact]
+        public void ShouldSendEmail()
+        {
+            _container.Resolve<IBusiness>().Run();
+
+            _container.Resolve<IEmailSender>().Received(1).Send(Arg.Any<string>(), Arg.Any<string>(), Arg.Any<string>());
+        }
     }
 }
