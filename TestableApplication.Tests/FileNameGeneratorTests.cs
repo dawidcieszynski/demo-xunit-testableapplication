@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using FluentAssertions;
+using NSubstitute;
 using Xunit;
 
 namespace TestableApplication.Tests
@@ -29,7 +30,7 @@ namespace TestableApplication.Tests
         {
             var fileNameGenerator = new FileNameGenerator();
 
-            var newFileName = fileNameGenerator.Generate(DateTime.Now); // why Now?
+            var newFileName = fileNameGenerator.Generate(Arg.Any<DateTime>());
 
             newFileName.Should().NotBeEmpty();
         }

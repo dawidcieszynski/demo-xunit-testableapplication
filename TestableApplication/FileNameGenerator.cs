@@ -6,7 +6,7 @@ namespace TestableApplication
     {
         public string Generate(DateTime date)
         {
-            return "x";
+            return date.ToString("yyyy-MM-dd") + ".txt";
         }
     }
 }
