@@ -14,5 +14,13 @@ namespace TestableApplication.Tests
                 .With<IBusiness, Business>()
                 .Build();
         }
+
+        [Fact]
+        public void ShouldReadExistingFiles()
+        {
+            _container.Resolve<IBusiness>().Run();
+
+            _container.Resolve<IFileReader>().Received(1).GetFiles();
+        }
     }
 }
